@@ -1,12 +1,13 @@
 import '../components/style.css';
 import Logo from '../assets/images/lead.png'
 import axios from 'axios';
-const cors = require('cors');
+import { sha512 } from 'js-sha512';
 export const Navigation = (props) => {
 
   const runApi = () => {
+    var hashdata = sha512('DTOAGA|Lv14zk11rTBmqT|10.00|iPhone|PayU User|test@gmail.com|||||||||||gfSJyPzFkBAr0ATzFgLa7nwb9kQoZjK7')
     const formData = new FormData();
-    formData.append('key', 'JP***g');
+    formData.append('key', 'DTOAGA');
     formData.append('txnid', 'Lv14zk11rTBmqT');
     formData.append('amount', '10.00');
     formData.append('firstname', 'PayU User');
@@ -15,7 +16,8 @@ export const Navigation = (props) => {
     formData.append('productinfo', 'iPhone');
     formData.append('surl', 'https://apiplayground-response.herokuapp.com/');
     formData.append('furl', 'https://apiplayground-response.herokuapp.com/');
-    formData.append('hash', 'd3dbb13032154ebccf2e0ec76135b5206a4b6699e537e2408c9bff0e595d46ff1900325d49bbb07b1c07b6f7b3cb9b843e766ca8d73212560a1b32075e777594');
+    formData.append('hash', '46fac96f57c6cd5429e1910f7046625dfd96671a284a6850e7b1e1d381279208efec4bdaaa13a2967869c286301a84c9ff3e107d39fd506191fb77611d8df935')
+    // formData.append('hash', 'd3dbb13032154ebccf2e0ec76135b5206a4b6699e537e2408c9bff0e595d46ff1900325d49bbb07b1c07b6f7b3cb9b843e766ca8d73212560a1b32075e777594');
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
     }
