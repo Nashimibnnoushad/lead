@@ -1,0 +1,64 @@
+/* ---------Custom Styles for Lead */
+
+.header-div {
+    background-color: rgb(0, 121, 164) !important;
+    color: white;
+    height: 54px;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+
+.navbar-language {
+    font-family: 'Roboto' !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 14px;
+    letter-spacing: 0.0015em;
+    text-transform: uppercase !important;
+    color: #FFFFFF !important;
+    margin-top: 5px;
+}
+
+.dropdown-icon {
+    margin-left: 6px;
+    font-size: 20px;
+    position: absolute;
+}
+
+.icon {
+    margin-right: 10px;
+}
+.logo-div {
+    background: #FFFFFF !important;
+    margin-top: 55px;
+    margin-bottom: 20px;
+}
+
+.signin {
+    margin-top: 30px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #03222D;
+}
+
+.signin-a{
+    cursor: pointer;
+    color: black;
+}
+
+.register-button {
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 100.28px;
+    height: 41px;
+    background: #0079A4;
+    color: white;
+    margin-left: 10px;
+    border: 0px;
+}
