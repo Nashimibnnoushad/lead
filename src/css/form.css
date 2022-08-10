@@ -1,0 +1,149 @@
+
+.formdata{
+    width: 100%;
+    padding: 50px 0;
+ 
+}
+.frm-head{
+    margin:10px auto ;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    
+}
+.formcontents{
+    width: 45%;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.formcontents .form-control{
+   padding: 20px;
+
+}
+.formcontents .form-select{
+    padding: 20px;
+}
+.radiobtn-form{
+    padding: 20px;
+    margin-bottom:10px ;
+
+    background-color: rgb(255, 255, 255);
+}
+
+.btn-data{
+    width: 100%;
+    display:inline-block;
+    padding: 20px;
+    background-color:#03222D ;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    
+}
+.btn-data:hover{
+color: #fff;
+text-decoration: none;
+
+}
+.btns p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 20px 0;
+}
+
+.redirectogin{
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.tosignin{
+    text-decoration: none;
+ color: #03222D;
+ text-decoration: underline;
+
+}
+.ordersummery{
+  margin: 2rem 0;
+}
+.ordersummery .summeryhead{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.ordersummery .tittle-summery{
+
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    border-top:2px solid #2c2c2c;
+    border-bottom: 2px solid #2c2c2c;
+    padding:20px 15px;
+    font-size: 18px;
+ 
+  
+}
+.summeryitem{
+    text-align: left;
+width: 70%;
+display: inline-block;
+    
+}
+.summeryprice{
+text-align: center;
+    width: 20%;
+    display: inline-block;
+    
+}
+
+.details-summery{
+    font-family: 'Roboto', sans-serif;
+
+  
+    padding:20px 15px;
+    font-size: 16px;
+}
+.total-summary{
+    
+    font-family: 'Roboto', sans-serif;
+
+    border-top:2px solid #2c2c2c;
+    border-bottom: 2px solid #2c2c2c;
+    padding:20px 15px;
+    font-size:18px;
+}
+
+.form-label span{
+color: rgb(193, 9, 9);
+}
+
+
+
+@media screen and (max-width: 1144px){
+    .formcontents{
+        width: 70%;
+       
+    }
+    
+}
+
+@media screen and (max-width: 666px){
+    .formcontents{
+        width: 90%;
+       
+    }
+    
+}
