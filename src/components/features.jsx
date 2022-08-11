@@ -6,9 +6,21 @@ import slider3 from '../image/slider-3.png'
 import slider4 from '../image/slider-4.png'
 import slider5 from '../image/slider-5.png'
 import slider6 from '../image/slider-6.png'
-
+import { Helmet } from 'react-helmet'
 
 export const Features = (props) => {
+  // var swiper = new Swiper(".mySwiper", {
+  //   navigation: {
+  //     nextEl: ".swiper-button-next",
+  //     prevEl: ".swiper-button-prev",
+  //   },
+  //   centeredSlides: true,
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
+  // });
+
   
   return (
     <>
@@ -175,6 +187,21 @@ export const Features = (props) => {
           <div className="swiper-button-prev"></div>
         </div>
       </div>
+      {/* <Helmet>
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        });
+      </script>
+      </Helmet> */}
     </>
   )
 }
