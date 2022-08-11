@@ -1,4 +1,4 @@
-// import '../components/style.css';
+import React, { useState } from 'react'
 import '../css/index.css'
 import '../js/index.js'
 import axios from 'axios';
@@ -6,8 +6,15 @@ import { sha512 } from 'js-sha512';
 import sun from '../image/sun-svgrepo-com.svg'
 import logo from '../image/Logo.png'
 import user from '../image/user.png'
+import { Link } from 'react-router-dom';
 
 export const Navigation = (props) => {
+
+  const [colorMode, setColorMode] = useState(true)
+
+  const gotoRegister = () => {
+    
+  }
 
   const runApi = () => {
     var hashdata = sha512('DTOAGA|Lv14zk11rTBmqT|10.00|iPhone|PayU User|test@gmail.com|||||||||||gfSJyPzFkBAr0ATzFgLa7nwb9kQoZjK7')
@@ -39,13 +46,13 @@ export const Navigation = (props) => {
         <div className="nav-bar nav-blue">
           <div className="container">
             <div className="row">
-              <div className="col-2 ">
-                Language
+              <div className="col-2 " style={{ cursor: "pointer" }}>
+                తెలుగు
               </div>
               <div className="col-10  text-end">
-                <span className="mx-3" style={{ "display": "inline-block " }}> <i className="fa fa-envelope mr-2" aria-hidden="true"></i>  happytohelp@.gov.in</span>
-                <span className="mx-3" style={{ "display": "inline-block " }}>    <i className="fa fa-phone mr-2" aria-hidden="true"></i>   1800 0000 0000</span>
-                <span className="mx-3" style={{ "display": "inline-block " }}>
+                <span className="mx-3" style={{ "display": "inline-block", cursor: "pointer" }}> <i className="fa fa-envelope mr-2" aria-hidden="true"></i>  happytohelp@.gov.in</span>
+                <span className="mx-3" style={{ "display": "inline-block ", cursor: "pointer" }}>    <i className="fa fa-phone mr-2" aria-hidden="true"></i>   1800 0000 0000</span>
+                <span className="mx-3" style={{ "display": "inline-block ", cursor: "pointer" }}>
                   <div className="dropboxitem" >
                     <div className="drophead " style={{ "padding": "0px 10px;" }}>
                       ACCESSIBILITY  <i className="fa fa-chevron-down" aria-hidden="true"></i>
@@ -71,7 +78,8 @@ export const Navigation = (props) => {
                 <img src={logo} alt="" srcset="" />
               </div>
               <div className="col-7 text-end">
-                <a href="http://" className="sig-button">Sign In</a>  <a href="/form.html" className="reg-button">Register</a>
+                <a href="http://" className="sig-button">Sign In</a>
+                <Link className="reg-button" target="_blank" to={`/Register`}>Register</Link>
               </div>
             </div>
           </div>
@@ -90,8 +98,11 @@ export const Navigation = (props) => {
         <div className="resp-item-list">
           <div className="hoveritem">
             <span> Night mode</span>
-            <div className="form-check form-switch" style={{"display":"inline-block ;min-height: auto; margin: auto;"}}>
-              <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+            <div className="form-check form-switch" style={{ "display": "inline-block ;min-height: auto; margin: auto;" }}>
+              <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked={colorMode}
+                onChange={() => {
+                  setColorMode(!colorMode)
+                }} />
             </div>
           </div>
         </div>

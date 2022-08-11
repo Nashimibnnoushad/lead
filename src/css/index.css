@@ -432,6 +432,8 @@ bottom: -0px;
 	border-radius: 60px;
   background-color: #ffffff;
 	position: relative;
+  margin-bottom: 15px;
+  margin-left: 10px;
 	
 }
 .mouse::before {
@@ -490,7 +492,7 @@ bottom: -0px;
     line-height: 50px;
     padding:0 25px;
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     text-transform: uppercase;
     font-weight: 500;
     cursor: pointer;
@@ -617,7 +619,7 @@ margin-bottom: 1rem;
 
 
 .faqlist .minus{
-
+  cursor: pointer;
   display: none;
 }
 /* faq end */
@@ -770,4 +772,8 @@ margin-bottom: 1rem;
   top:13rem;
   left: 2rem;
   }
+}
+
+.plus {
+  cursor: pointer;
 }
