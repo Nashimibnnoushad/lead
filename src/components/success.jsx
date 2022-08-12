@@ -5,12 +5,16 @@ import '../css/confo.css'
 import '../js/index.js'
 import './style.css'
 import successimg from '../image/success.png'
+import backbutton from '../image/backbutton.png'
 import React, { useState, useEffect } from 'react'
 
 const Success = () => {
 
     return (
         <>
+            <div className="back-button">
+                <a href="./Home"> <img src={backbutton} alt="" srcset="" /></a>
+            </div>
             <div className="success-confram  faq-color-C3EEFE">
                 <div className="details">
                     <h2>Payment is successfully done</h2>
@@ -40,7 +44,7 @@ const Success = () => {
                             </div>
                             <div className="textbox">
                                 <div className="input-group mb-3">
-                                    <span className="input-group-text " style={{backgroundColor: "#0079A4", color:"#fff"}} id="basic-addon1">+91</span>
+                                    <span className="input-group-text " style={{ backgroundColor: "#0079A4", color: "#fff" }} id="basic-addon1">+91</span>
                                     <input type="text" className="form-control" placeholder="Mobile Number" />
                                 </div>
                             </div>
@@ -56,7 +60,7 @@ const Success = () => {
                             </div>
                             <div className="textbox">
                                 <div className="input-group mb-3">
-                                    <span className="input-group-text " style={{backgroundColor: "#0079A4", color:"#fff"}} id="basic-addon1">+91</span>
+                                    <span className="input-group-text " style={{ backgroundColor: "#0079A4", color: "#fff" }} id="basic-addon1">+91</span>
                                     <input type="text" className="form-control" placeholder="Mobile Number" />
                                 </div>
                             </div>
@@ -72,7 +76,7 @@ const Success = () => {
                             </div>
                             <div className="textbox">
                                 <div className="input-group mb-3">
-                                    <span className="input-group-text " style={{backgroundColor: "#0079A4", color:"#fff"}} id="basic-addon1">+91</span>
+                                    <span className="input-group-text " style={{ backgroundColor: "#0079A4", color: "#fff" }} id="basic-addon1">+91</span>
                                     <input type="text" className="form-control" placeholder="Mobile Number" />
                                 </div>
                             </div>
@@ -88,7 +92,7 @@ const Success = () => {
                             </div>
                             <div className="textbox">
                                 <div className="input-group mb-3">
-                                    <span className="input-group-text " style={{backgroundColor: "#0079A4", color:"#fff"}} id="basic-addon1">+91</span>
+                                    <span className="input-group-text " style={{ backgroundColor: "#0079A4", color: "#fff" }} id="basic-addon1">+91</span>
                                     <input type="text" className="form-control" placeholder="Mobile Number" />
                                 </div>
                             </div>
@@ -104,7 +108,7 @@ const Success = () => {
                             </div>
                             <div className="textbox">
                                 <div className="input-group mb-3">
-                                    <span className="input-group-text " style={{backgroundColor: "#0079A4", color:"#fff"}} id="basic-addon1">+91</span>
+                                    <span className="input-group-text " style={{ backgroundColor: "#0079A4", color: "#fff" }} id="basic-addon1">+91</span>
                                     <input type="text" className="form-control" placeholder="Mobile Number" />
                                 </div>
                             </div>
@@ -114,7 +118,7 @@ const Success = () => {
                             <span>+ Add friend</span>
                         </div>
                         <div className="addbtns">
-                            <a href="" className="Invitesuccess"> Invite</a><a className="Invitecancel"> Cancel</a>
+                            <a href="/Invitationsuccess" className="Invitesuccess"> Invite</a><a className="Invitecancel"> Cancel</a>
                         </div>
                     </div>
 

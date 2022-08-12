@@ -5,7 +5,7 @@
 
 .back-button{
   position: absolute;
-  top:13rem;
+  top:16rem;
   left: 10rem;
   }
 
@@ -51,6 +51,11 @@ p{
   /* text-transform: uppercase; */
 }
 
+.selectedlanguage {
+  background-color: #015C7C !important;
+  color: white !important;
+}
+
 .drophead{
   position: relative;
   z-index: 1000;
@@ -67,6 +72,8 @@ background-color: #015C7C;
 .dropboxitem .drophead:hover{
 
 }
+
+
  .dropitems{
 position: absolute;
 display: none;
@@ -483,7 +490,7 @@ bottom: -0px;
 .selectitem{
     position: absolute;
     top: 0;
-    left: calc(50% - 218px)
+    left: calc(50% - 200px)
 }
 
 .slide{
@@ -769,7 +776,7 @@ margin-bottom: 1rem;
 }
 .back-button{
   position: absolute;
-  top:13rem;
+  top:16rem;
   left: 2rem;
   }
 }

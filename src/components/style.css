@@ -114,3 +114,47 @@ body.light-mode {
     -webkit-appearance: none;
     appearance: none;
   }
+
+  .languagedrophead{
+    position: relative;
+    z-index: 1000;
+  }
+  .languagedropboxitem .languagedrophead{
+    width: auto;
+   text-align: center;
+    text-transform: uppercase; 
+  
+  }
+  .languagedropboxitem .languagedrophead:hover{
+  background-color: #015C7C;
+  }
+  .languagedropboxitem .languagedrophead:hover{
+  
+  }
+  .languagedropitems{
+    position: absolute;
+    display: none;
+    /* top: 100px; */
+    background-color: #C3EEFE;
+    min-width: 200px;
+    text-align: left;
+    z-index: 1000;
+    
+    }
+    .languagedropitems .languagedrop-content{
+    display: block;
+    padding: 0 10px;
+    line-height: 50px !important;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid #0079A4;
+    
+    }
+    .languagedropitems .languagedrop-content:hover{
+     background-color: #0079A4;
+      color: rgb(255, 255, 255);
+      border-bottom: 1px solid #0079A4;
+      
+      }

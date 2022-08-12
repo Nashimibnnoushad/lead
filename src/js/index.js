@@ -33,6 +33,11 @@ $(document).ready(function(){
   
       });
 
+      $(".languagedrophead").click(function(){
+        $('.languagedropitems').toggle();
+  
+      });
+
       $(".sidebar").click(function(){
         $('.sidenavbar').fadeIn();
   

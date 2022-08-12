@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/index.css'
 import '../js/index.js'
+import './style.css'
 import sun from '../image/sun-svgrepo-com.svg'
 import logo from '../image/Logo.png'
 import user from '../image/user.png'
@@ -9,6 +10,19 @@ import { Link, Navigate } from 'react-router-dom';
 export const Navigation = (props) => {
 
   const [colorMode, setColorMode] = useState(true)
+  const [language, setLanguage] = useState('1')
+
+  useEffect(() => {
+    const languageval = JSON.parse(localStorage.getItem("language"));
+    if (languageval !== null) {
+        setLanguage(languageval)
+    }
+}, []);
+
+  const languageChange = (value) => {
+    setLanguage(value)
+    localStorage.setItem("language", JSON.stringify(value))
+  }
 
   return (
     <>
@@ -17,7 +31,18 @@ export const Navigation = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-2 " style={{ cursor: "pointer" }}>
-                తెలుగు
+                {/* తెలుగు */}
+                <div className="languagedropboxitem" >
+                    <div className="languagedrophead " style={{ "padding": "0px 10px;", textTransform:'capitalize' }}>
+                      Language  <i className="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <div className="languagedropitems">
+                      <span className={language === '1' ? 'languagedrop-content selectedlanguage' : 'languagedrop-content'} onClick={()=> languageChange('1')}>
+                        English </span>
+                      <span className={language === '2' ? 'languagedrop-content selectedlanguage' : 'languagedrop-content'} onClick={()=> languageChange('2')}>
+                        తెలుగు</span>
+                    </div>
+                  </div>
               </div>
               <div className="col-10  text-end">
                 <span className="mx-3" style={{ "display": "inline-block", cursor: "pointer" }}> <i className="fa fa-envelope mr-2" aria-hidden="true"></i>  happytohelp@.gov.in</span>
