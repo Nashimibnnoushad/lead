@@ -1,17 +1,28 @@
+import React, { useState, useEffect } from 'react'
 import '../css/index.css'
 import '../js/index.js'
 import group from '../image/group.png'
 import tabletop from '../image/tabletop.png'
 import microsoft from '../image/microsoft.png'
+import { Link } from 'react-router-dom';
 
 export const Services = (props) => {
+
+  useEffect(() => {
+      localStorage.setItem("program", 'Entrepreneurship Program')
+  });
+
+  const setProgram = (value) => {
+    localStorage.setItem("program", value)
+  }
+
   return (
     <>
       <div  className="skil-view mt-5">
         <div  className="sliderscrool text-center">
           <div  className="selectitem">
-            <span  className="slide slideractive slide-ent">Entrepreneurship</span>
-            <span  className="slide slide-skil">Skilling</span>
+            <span  className="slide slideractive slide-ent" onClick={()=>setProgram('Entrepreneurship Program')}>Entrepreneurship</span>
+            <span  className="slide slide-skil" onClick={()=>setProgram('Skilling Program')}>Skilling</span>
           </div>
         </div>
         <div  className="Entrepreneurship enterpre color-0B546F">
@@ -32,7 +43,7 @@ export const Services = (props) => {
             <div  className="btn-Entre mt-4">
               <p style={{marginTop: "5rem"}}>Interested? Pay only <b>Rs 1,920</b>  for Skills, Certifications worth <b> Rs 16,000!</b>
               </p>
-              <a href="#"  className="btn-sate">reserve your seat</a>
+              <a className="btn-sate"  href='/Register'>Register</a>
             </div>
           </div>
         </div>
@@ -54,7 +65,7 @@ export const Services = (props) => {
             <div  className="btn-Entre mt-4">
               <p style={{marginTop: "5rem"}}>Interested? Pay only <b>Rs 1,920</b>  for Skills, Certifications worth <b> Rs 16,000!</b>
               </p>
-              <a href="#"  className="btn-sate">reserve your seat</a>
+              <a className="btn-sate"   href='/Register'>Register</a>
             </div>
           </div>
         </div>

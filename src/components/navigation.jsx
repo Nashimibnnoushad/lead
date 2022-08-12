@@ -1,44 +1,14 @@
 import React, { useState } from 'react'
 import '../css/index.css'
 import '../js/index.js'
-import axios from 'axios';
-import { sha512 } from 'js-sha512';
 import sun from '../image/sun-svgrepo-com.svg'
 import logo from '../image/Logo.png'
 import user from '../image/user.png'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 export const Navigation = (props) => {
 
   const [colorMode, setColorMode] = useState(true)
-
-  const gotoRegister = () => {
-    
-  }
-
-  const runApi = () => {
-    var hashdata = sha512('DTOAGA|Lv14zk11rTBmqT|10.00|iPhone|PayU User|test@gmail.com|||||||||||gfSJyPzFkBAr0ATzFgLa7nwb9kQoZjK7')
-    const formData = new FormData();
-    formData.append('key', 'DTOAGA');
-    formData.append('txnid', 'Lv14zk11rTBmqT');
-    formData.append('amount', '10.00');
-    formData.append('firstname', 'PayU User');
-    formData.append('email', 'test@gmail.com');
-    formData.append('phone', '9876543210');
-    formData.append('productinfo', 'iPhone');
-    formData.append('surl', 'https://apiplayground-response.herokuapp.com/');
-    formData.append('furl', 'https://apiplayground-response.herokuapp.com/');
-    formData.append('hash', '46fac96f57c6cd5429e1910f7046625dfd96671a284a6850e7b1e1d381279208efec4bdaaa13a2967869c286301a84c9ff3e107d39fd506191fb77611d8df935')
-    // formData.append('hash', 'd3dbb13032154ebccf2e0ec76135b5206a4b6699e537e2408c9bff0e595d46ff1900325d49bbb07b1c07b6f7b3cb9b843e766ca8d73212560a1b32075e777594');
-    const headers = {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    }
-    axios.post(`https://test.payu.in/_payment`, formData, { headers: headers })
-      .then((response) => {
-        console.log(response, 'response')
-      })
-
-  }
 
   return (
     <>
@@ -79,7 +49,7 @@ export const Navigation = (props) => {
               </div>
               <div className="col-7 text-end">
                 <a href="http://" className="sig-button">Sign In</a>
-                <Link className="reg-button" target="_blank" to={`/Register`}>Register</Link>
+                <a className="reg-button"  href='/Register' >Register</a>
               </div>
             </div>
           </div>
@@ -145,7 +115,7 @@ export const Navigation = (props) => {
               <a href="#" className="res-btn-sign"> <img src={user} alt="" srcset="" /> Sign In</a>
             </div>
             <div className="col-6">
-              <a href="/form.html" className="res-btn-reg"> Regisiter</a>
+              <a className="res-btn-reg"  href='/Register'>Register</a>
             </div>
           </div>
         </div>

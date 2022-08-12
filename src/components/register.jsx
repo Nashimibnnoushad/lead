@@ -8,10 +8,8 @@ import "../App.css";
 const Register = () => {
   return (
     <div>
-      <Navigation />
       <RegistrationForm data={'data'}/>
       <RegistrationFAQ />
-      <Footer/>
     </div>
   );
 };

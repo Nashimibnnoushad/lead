@@ -2,7 +2,7 @@
     text-align: center;
     padding: 50px 0;
     padding-bottom: 100px;
-    
+    margin-bottom: 50px;
 
 }
 .success-confram .details{
@@ -84,6 +84,7 @@
    /* border-radius: 50px;
    background-color: #03222D; */
    display: inline-block;
+   text-align: center;
 
 }
 .addfrnds .listnum span{
@@ -94,6 +95,7 @@
   color:#fff;
   display: block;
   background-color: #0079A4;
+  padding-top: 30%;
  
  }
 .addfrnds .listnum{
@@ -157,6 +159,7 @@ padding: 0;
     font-size: 16px;
     border: 1px solid #03222D;
     text-decoration: none;
+    margin-right: 10px;
  }
  .Invitecancel{
     display: inline-block;
