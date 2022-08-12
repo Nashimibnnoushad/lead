@@ -34,7 +34,7 @@ export const Navigation = (props) => {
                 {/* తెలుగు */}
                 <div className="languagedropboxitem" >
                     <div className="languagedrophead " style={{ "padding": "0px 10px;", textTransform:'capitalize' }}>
-                      Language  <i className="fa fa-chevron-down" aria-hidden="true"></i>
+                      {language === '1' ? 'English' : 'తెలుగు'}  <i className="fa fa-chevron-down" aria-hidden="true"></i>
                     </div>
                     <div className="languagedropitems">
                       <span className={language === '1' ? 'languagedrop-content selectedlanguage' : 'languagedrop-content'} onClick={()=> languageChange('1')}>

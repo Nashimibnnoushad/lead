@@ -38,6 +38,11 @@ $(document).ready(function(){
   
       });
 
+      $(".languagedrop-content").click(function(){
+        $('.languagedropitems').toggle();
+  
+      });
+
       $(".sidebar").click(function(){
         $('.sidenavbar').fadeIn();
   
