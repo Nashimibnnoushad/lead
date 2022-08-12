@@ -22,6 +22,7 @@ export const Navigation = (props) => {
   const languageChange = (value) => {
     setLanguage(value)
     localStorage.setItem("language", JSON.stringify(value))
+    window.location.reload()
   }
 
   return (

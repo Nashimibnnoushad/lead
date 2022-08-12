@@ -1,19 +1,44 @@
+import React, { useState, useEffect } from 'react'
 import '../css/index.css'
 import '../js/index.js'
 import plus from '../image/plus.png'
 import minus from '../image/minus.png'
+import axios from 'axios';
 
 export const FAQ = (props) => {
+  const [faqList, setfaqList] = useState([])
+
+  useEffect(() => {
+    var lang
+    const languageval = JSON.parse(localStorage.getItem("language"));
+    if (languageval !== null) {
+      lang = languageval
+    }
+    else {
+      lang = 1
+    }
+    const headers = {
+      'ApiKey': '1f94878b-8e91-449c-8942-9df195581f16',
+    }
+    axios.get(`https://leadappdev-api.azurewebsites.net/api/UserRegistration/GetAllFaqs?pageno=1&languageid=${lang}`, { headers: headers })
+      .then((response) => {
+        console.log(response, 'faq response')
+        setfaqList(response.data)
+      })
+  }, []);
+
   return (
     <>
       <div className="faq my-5">
         <div className="container">
           <h2>FAQ</h2>
-          <div className="faqlist faq-color-C3EEFE">
+
+          {faqList.map((value, index) => 
+            <div className="faqlist faq-color-C3EEFE">
             <div className="faqhead">
               <div className="row">
                 <div className="col-10">
-                  <p>What is the refund policy?</p>
+                  <p>{value.faqQuestion}</p>
                 </div>
                 <div className="col-2 text-end">
                   <span className="plus">
@@ -26,10 +51,11 @@ export const FAQ = (props) => {
               </div>
             </div>
             <div className="faqdetails">
-              <p>content</p>
+              <p>{value.faqAnswer}</p>
             </div>
           </div>
-          <div className="faqlist faq-color-C3EEFE">
+          )}
+          {/* <div className="faqlist faq-color-C3EEFE">
             <div className="faqhead">
               <div className="row">
                 <div className="col-10">
@@ -128,7 +154,8 @@ export const FAQ = (props) => {
             <div className="faqdetails">
               <p>content</p>
             </div>
-          </div>
+          </div> */}
+
         </div>
       </div>
     </>

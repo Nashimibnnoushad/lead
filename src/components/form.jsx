@@ -11,6 +11,7 @@ import { sha512 } from 'js-sha512';
 export const RegistrationForm = (props) => {
     const [fullname, setFullname] = useState('')
     const [gender, setGender] = useState('')
+    const [genderArray, setgenderArray] = useState([])
     const [email, setEmail] = useState('')
     const [mobile, setMobile] = useState('')
     const [address1, setAddress1] = useState('')
@@ -36,21 +37,20 @@ export const RegistrationForm = (props) => {
     const [transactionid, settransactionid] = useState('')
     const [amount, setAmount] = useState('10.00')
     const [hashdata, sethashdata] = useState('')
-
+    const [countvalue, setcountvalue] = useState(0)
 
     useEffect(() => {
-        // if (districtArray.length === 0) {
-        //     getDistrict()
-        // }
-        // if (qualificationArray.length === 0) {
-        //     getQualification()
-        // }
+        if (countvalue === 0) {
+            getAllDetails()
+        }
         enableRegister()
         getHashdata()
         saveUserdata()
     });
 
-    const getDistrict = () => {
+    
+    const getAllDetails = () => {
+        setcountvalue(1)
         const program = localStorage.getItem("program");
         if (program === null) {
             setProgram('Entrepreneurship Program')
@@ -62,24 +62,15 @@ export const RegistrationForm = (props) => {
         const headers = {
             'ApiKey': '1f94878b-8e91-449c-8942-9df195581f16',
         }
-        axios.get(`https://leadappdev-api.azurewebsites.net/api/UserRegistration/GetAllDistricts`, { headers: headers })
+        axios.get(`https://leadappdev-api.azurewebsites.net/api/UserRegistration/GetRegistrationPageData`, { headers: headers })
             .then((response) => {
                 console.log(response, 'response')
-                setdistrictArray(response.data)
-
+                setdistrictArray(response.data.districtData)
+                setqualificationArray(response.data.highestQuadata)
+                setgenderArray(response.data.genderData)
             })
     }
 
-    const getQualification = () => {
-        const headers = {
-            'ApiKey': '1f94878b-8e91-449c-8942-9df195581f16',
-        }
-        axios.get(`https://leadappdev-api.azurewebsites.net/api/UserRegistration/GetAllHighestQua`, { headers: headers })
-            .then((response) => {
-                console.log(response, 'response')
-                setqualificationArray(response.data)
-            })
-    }
 
     function generateTransactionId(length) {
         for (var s = ''; s.length < length; s += 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.charAt(Math.random() * 62 | 0));
@@ -88,7 +79,6 @@ export const RegistrationForm = (props) => {
 
     function getHashdata() {
         var hashdata = sha512('DTOAGA|' + transactionid + '|' + amount + '|' + program + '|' + fullname + '|' + email + '|||||||||||gfSJyPzFkBAr0ATzFgLa7nwb9kQoZjK7')
-        console.log(hashdata,'hashdata')
         sethashdata(hashdata)
     }
 
@@ -114,7 +104,6 @@ export const RegistrationForm = (props) => {
       }
 
     const fullnameChange = (value) => {
-        generateTransactionId(14)
         setFullname(value)
         if (value === '') {
             setfullnameError(true)
@@ -300,8 +289,7 @@ export const RegistrationForm = (props) => {
                             <select className={genderError ? 'error-form-select form-select' : 'form-select'}
                                 value={gender} onClick={(e) => genderChange(gender)} onChange={(e) => genderChange(e.target.value)} aria-label="Default select example">
                                 <option selected value=''>Please select...</option>
-                                <option selected value='Male'>Male</option>
-                                <option selected value='Female'>Female</option>
+                                {genderArray.map((value, index) => <option key={index} value={value.id}>{value.gender}</option>)}
                             </select>
                             {genderError &&
                                 <span className='error-message'>Please select gender</span>
@@ -381,8 +369,7 @@ export const RegistrationForm = (props) => {
                             <select className={districtError ? 'error-form-select form-select' : 'form-select'} value={district}
                                 onClick={() => districtChange(district)} onChange={(e) => districtChange(e.target.value)} aria-label="Default select example">
                                 <option selected value=''>Please select...</option>
-                                <option value='dummy'>dummy</option>
-                                {districtArray.map((value, index) => <option key={value.id} value={value.district}>{value.district}</option>)}
+                                {districtArray.map((value, index) => <option key={index} value={value.id}>{value.district}</option>)}
                             </select>
                             {districtError &&
                                 <span className='error-message'>Please select district</span>
@@ -401,8 +388,7 @@ export const RegistrationForm = (props) => {
                             <select className={highestqualificationError ? 'error-form-select form-select' : 'form-select'} value={highestqualification}
                                 onClick={() => highestqualificationChange(highestqualification)} onChange={(e) => highestqualificationChange(e.target.value)} aria-label="Default select example">
                                 <option selected value=''>Please select...</option>
-                                <option value='dummy'>dummy</option>
-                                {qualificationArray.map((value, index) => <option key={value.id} value={value.highestQua}>{value.highestQua}</option>)}
+                                {qualificationArray.map((value, index) => <option key={index} value={value.id}>{value.highestQua}</option>)}
                             </select>
                             {highestqualificationError &&
                                 <span className='error-message'>Please select Highest Qualification</span>
