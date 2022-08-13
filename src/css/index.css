@@ -5,7 +5,7 @@
 
 .back-button{
   position: absolute;
-  top:16rem;
+  top:10rem;
   left: 10rem;
   }
 
@@ -776,7 +776,7 @@ margin-bottom: 1rem;
 }
 .back-button{
   position: absolute;
-  top:16rem;
+  top:10rem;
   left: 2rem;
   }
 }
