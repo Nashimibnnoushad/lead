@@ -17,16 +17,16 @@ $(document).ready(function(){
   
       });
 
-      $(".plus").click(function(){
-        $(this).parent().parent().parent().next().fadeIn();
-        $(this).hide()
-        $(this).next().show()
-      });
-      $(".minus").click(function(){
-        $(this).parent().parent().parent().next().fadeOut()
-        $(this).hide()
-        $('.plus').show()
-      });
+      // $(".plus").click(function(){
+      //   $(this).parent().parent().parent().next().fadeIn();
+      //   $(this).hide()
+      //   $(this).next().show()
+      // });
+      // $(".minus").click(function(){
+      //   $(this).parent().parent().parent().next().fadeOut()
+      //   $(this).hide()
+      //   $('.plus').show()
+      // });
 
       $(".drophead").click(function(){
         $('.dropitems').toggle();

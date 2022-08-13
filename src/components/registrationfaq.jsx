@@ -7,8 +7,10 @@ import axios from 'axios';
 
 export const RegistrationFAQ = (props) => {
   const [faqList, setfaqList] = useState([])
+  const [activeid, setactiveid] = useState(0)
 
   useEffect(() => {
+    setactiveid(0)
     var lang
     const languageval = JSON.parse(localStorage.getItem("language"));
     if (languageval !== null) {
@@ -27,6 +29,10 @@ export const RegistrationFAQ = (props) => {
       })
   }, []);
 
+  const setfaqid = (id) => {
+    setactiveid(id)
+  }
+
   return (
     <>
       <div className="faq my-5">
@@ -34,25 +40,31 @@ export const RegistrationFAQ = (props) => {
           <h2>FAQ</h2>
 
           {faqList.map((value, index) => 
-            <div className="faqlist faq-color-C3EEFE">
+            <div key={index} className="faqlist faq-color-C3EEFE">
             <div className="faqhead">
               <div className="row">
                 <div className="col-10">
                   <p>{value.faqQuestion}</p>
                 </div>
                 <div className="col-2 text-end">
-                  <span className="plus">
-                    <img src={plus} alt="" srcset="" />
-                  </span>
-                  <span className="minus">
-                    <img src={minus} alt="" srcset="" />
-                  </span>
+                  {activeid !== value.id &&
+                    <span className="plus">
+                      <img src={plus} alt="" srcset="" onClick={() => setfaqid(value.id)} />
+                    </span>
+                  }
+                  {activeid === value.id &&
+                    <span className="minus">
+                      <img src={minus} alt="" srcset="" onClick={() => setfaqid(0)} />
+                    </span>
+                  }
                 </div>
               </div>
             </div>
-            <div className="faqdetails">
-              <p>{value.faqAnswer}</p>
-            </div>
+            {activeid === value.id &&
+              <div className="faqdetails">
+                <p>{value.faqAnswer}</p>
+              </div>
+            }
           </div>
           )}
           {/* <div className="faqlist faq-color-C3EEFE">

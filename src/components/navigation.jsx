@@ -6,7 +6,7 @@ import sun from '../image/sun-svgrepo-com.svg'
 import logo from '../image/Logo.png'
 import user from '../image/user.png'
 import { Link, Navigate } from 'react-router-dom';
-
+import configData from "../config.json"
 export const Navigation = (props) => {
 
   const [colorMode, setColorMode] = useState(true)
@@ -15,9 +15,9 @@ export const Navigation = (props) => {
   useEffect(() => {
     const languageval = JSON.parse(localStorage.getItem("language"));
     if (languageval !== null) {
-        setLanguage(languageval)
+      setLanguage(languageval)
     }
-}, []);
+  }, []);
 
   const languageChange = (value) => {
     setLanguage(value)
@@ -32,22 +32,29 @@ export const Navigation = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-2 " style={{ cursor: "pointer" }}>
-                {/* తెలుగు */}
                 <div className="languagedropboxitem" >
-                    <div className="languagedrophead " style={{ "padding": "0px 10px;", textTransform:'capitalize' }}>
-                      {language === '1' ? 'English' : 'తెలుగు'}  <i className="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <div className="languagedropitems">
-                      <span className={language === '1' ? 'languagedrop-content selectedlanguage' : 'languagedrop-content'} onClick={()=> languageChange('1')}>
-                        English </span>
-                      <span className={language === '2' ? 'languagedrop-content selectedlanguage' : 'languagedrop-content'} onClick={()=> languageChange('2')}>
-                        తెలుగు</span>
-                    </div>
+                  <div className="languagedrophead " style={{ "padding": "0px 10px;", textTransform: 'capitalize' }}>
+                    {language === '1' ? 'English' : 'తెలుగు'}  <i className="fa fa-chevron-down" aria-hidden="true"></i>
                   </div>
+                  <div className="languagedropitems">
+                    {configData.LANGUAGES.map((value, index) =>
+                      <span key={index} className={language === value.id ? 'languagedrop-content selectedlanguage' : 'languagedrop-content'} onClick={() => languageChange(value.id)}>
+                        {value.language} </span>
+                    )}
+                  </div>
+                </div>
               </div>
               <div className="col-10  text-end">
-                <span className="mx-3" style={{ "display": "inline-block", cursor: "pointer" }}> <i className="fa fa-envelope mr-2" aria-hidden="true"></i>  happytohelp@.gov.in</span>
-                <span className="mx-3" style={{ "display": "inline-block ", cursor: "pointer" }}>    <i className="fa fa-phone mr-2" aria-hidden="true"></i>   1800 0000 0000</span>
+                <span className="mx-3" style={{ "display": "inline-block", cursor: "pointer" }}>
+                  <a className='link' href={`mailto:${configData.NAVBAR_MAIL}`}>
+                    <i className="fa fa-envelope mr-2" aria-hidden="true"></i>{configData.NAVBAR_MAIL}
+                  </a>
+                </span>
+                <span className="mx-3" style={{ "display": "inline-block ", cursor: "pointer" }}>
+                <a className='link' href={`tel:${configData.NAVBAR_CONTACT}`}>
+                <i className="fa fa-phone mr-2" aria-hidden="true"></i>{configData.NAVBAR_CONTACT}
+                </a>
+                </span>
                 <span className="mx-3" style={{ "display": "inline-block ", cursor: "pointer" }}>
                   <div className="dropboxitem" >
                     <div className="drophead " style={{ "padding": "0px 10px;" }}>
@@ -75,7 +82,7 @@ export const Navigation = (props) => {
               </div>
               <div className="col-7 text-end">
                 <a href="http://" className="sig-button">Sign In</a>
-                <a className="reg-button"  href='/Register' >Register</a>
+                <a className="reg-button" href='/Register' >Register</a>
               </div>
             </div>
           </div>
@@ -106,22 +113,24 @@ export const Navigation = (props) => {
           <div className="hoveritem">
             <p>Language</p>
           </div>
-          <div className="resp-item-child language">
-            <i className="fa fa-check" aria-hidden="true"></i> English
-          </div>
-          <div className="resp-item-child language">
-            తెలుగు
-          </div>
+          {configData.LANGUAGES.map((value, index) =>
+            <div key={index} className="resp-item-child language" onClick={() => languageChange(value.id)}>
+              {language === value.id &&
+                <i className="fa fa-check" aria-hidden="true"></i>
+              }
+              {value.language}
+            </div>
+          )}
         </div>
         <div className="resp-item-list">
           <div className="hoveritem">
             Contact
           </div>
           <div className="resp-item-child">
-            <a href="tel:1800-1234-0000">1800-1234-0000</a>
+            <a className='' href={`tel:${configData.NAVBAR_CONTACT}`}>{configData.NAVBAR_CONTACT}</a>
           </div>
           <div className="resp-item-child">
-            <a className="tab" href="mailto:Help-line@lead.com">Help-line@lead.com</a>
+            <a className="tab " href={`mailto:${configData.NAVBAR_MAIL}`}>{configData.NAVBAR_MAIL}</a>
           </div>
         </div>
       </div>
@@ -131,7 +140,7 @@ export const Navigation = (props) => {
         <div className="res-nav-head">
           <div className="headeritemsresp" >  <img src={logo} alt="" srcset="" /></div>
           <div className="headeritemsresp text-center"  ><a href="#" className="btn-language">
-            language
+            {language === '1' ? 'English' : 'తెలుగు'}
           </a></div>
           <div className="headeritemsresp text-end"  ><span className="navitemsresp "><i className="fa fa-bars sidebar" aria-hidden="true"></i></span></div>
         </div>
@@ -141,7 +150,7 @@ export const Navigation = (props) => {
               <a href="#" className="res-btn-sign"> <img src={user} alt="" srcset="" /> Sign In</a>
             </div>
             <div className="col-6">
-              <a className="res-btn-reg"  href='/Register'>Register</a>
+              <a className="res-btn-reg" href='/Register'>Register</a>
             </div>
           </div>
         </div>

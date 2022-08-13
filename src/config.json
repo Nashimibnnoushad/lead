@@ -1,0 +1,10 @@
+{
+    "LANGUAGES" : [
+        {"id": "1","language": "English"},
+        {"id": "2","language": "తెలుగు"}
+    ],
+    "NAVBAR_MAIL": "happytohelp@.gov.in",
+    "NAVBAR_CONTACT": "1800 0000 0000",
+    "FOOTER_MAIL": "happytohelp@ed4all.in",
+    "FOOTER_CONTACT": "+91 0000 0000"
+  }

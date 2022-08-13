@@ -619,15 +619,15 @@ margin-bottom: 1rem;
 }
 
 .faqlist .faqdetails{
-  min-height:200px ;
-  display: none;
+  min-height:max-content ;
+  /* display: none; */
   padding: 20px;
 }
 
 
 .faqlist .minus{
   cursor: pointer;
-  display: none;
+  /* display: none; */
 }
 /* faq end */
 
@@ -799,4 +799,13 @@ margin-bottom: 1rem;
   font-size: 16px;
   font-weight: 500;
   cursor: not-allowed !important;
+}
+
+.link {
+  color: white !important;
+  text-decoration: none;
+}
+.footerlink {
+  color: black !important;
+  text-decoration: none;
 }

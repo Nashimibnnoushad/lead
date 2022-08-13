@@ -38,6 +38,9 @@ export const RegistrationForm = (props) => {
     const [amount, setAmount] = useState('10.00')
     const [hashdata, sethashdata] = useState('')
     const [countvalue, setcountvalue] = useState(0)
+    const [emailcheckmsg, setemailcheckmsg] = useState('Please enter valid email')
+    const [phonecheckmsg, setphonecheckmsg] = useState('Please enter valid mobile number')
+
 
     useEffect(() => {
         if (countvalue === 0) {
@@ -131,12 +134,56 @@ export const RegistrationForm = (props) => {
         else {
             var decimal = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
             if (decimal.test(value)) {
-                setemailError(false)
+                // setemailError(false)
+                emailexistcheck()
             }
             else {
                 setemailError(true)
             }
         }
+    }
+
+    const emailexistcheck = () => {
+        const headers = {
+            'ApiKey': '1f94878b-8e91-449c-8942-9df195581f16',
+          }
+          axios.get(`https://leadappdev-api.azurewebsites.net/api/UserRegistration/EmailPhValidation?email=${email}&Phone=${mobile}`, { headers: headers })
+            .then((response) => {
+              console.log(response, 'email check response')
+              if(response.data.MSG === "EMAIL ID ALREADY EXIST"){
+                setemailError(true)
+                setemailcheckmsg('This email is already exist')
+              }
+              else if(response.data.MSG === "PHONE NUMBER ALREADY EXIST"){
+                    setmobileError(true)
+                    setphonecheckmsg('This mobile number is already exist')
+              }
+              else{
+                setemailError(false)
+                setmobileError(false)
+              }
+            })
+    }
+
+    const phoneexistcheck = () => {
+        const headers = {
+            'ApiKey': '1f94878b-8e91-449c-8942-9df195581f16',
+          }
+          axios.get(`https://leadappdev-api.azurewebsites.net/api/UserRegistration/EmailPhValidation?email=${email}&Phone=${mobile}`, { headers: headers })
+            .then((response) => {
+                if(response.data.MSG === "EMAIL ID ALREADY EXIST"){
+                    setemailError(true)
+                    setemailcheckmsg('This email is already exist')
+                  }
+                  else if(response.data.MSG === "PHONE NUMBER ALREADY EXIST"){
+                        setmobileError(true)
+                        setphonecheckmsg('This mobile number is already exist')
+                  }
+                  else{
+                    setemailError(false)
+                    setmobileError(false)
+                  }
+            })
     }
 
     const mobileChange = (value) => {
@@ -146,7 +193,8 @@ export const RegistrationForm = (props) => {
         }
         else {
             if (value.length === 10) {
-                setmobileError(false)
+                // setmobileError(false)
+                phoneexistcheck()
             }
             else {
                 setmobileError(true)
@@ -278,7 +326,7 @@ export const RegistrationForm = (props) => {
                         <div className="mb-3">
                             <label className="form-label">Full Name <span>*</span></label>
                             <input type="text" className={fullnameError ? 'error-form-control form-control' : 'form-control'} value={fullname}
-                                onClick={(e) => fullnameChange(fullname)} onChange={(e) => fullnameChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “Rohan Kumar”" />
+                                onBlur={(e) => fullnameChange(fullname)} onChange={(e) => fullnameChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “Rohan Kumar”" />
                             {fullnameError &&
                                 <span className='error-message'>Please enter fullname</span>
                             }
@@ -287,7 +335,7 @@ export const RegistrationForm = (props) => {
                         <div className="mb-3">
                             <label className="form-label">Gender<span>*</span></label><br />
                             <select className={genderError ? 'error-form-select form-select' : 'form-select'}
-                                value={gender} onClick={(e) => genderChange(gender)} onChange={(e) => genderChange(e.target.value)} aria-label="Default select example">
+                                value={gender} onBlur={(e) => genderChange(gender)} onChange={(e) => genderChange(e.target.value)} aria-label="Default select example">
                                 <option selected value=''>Please select...</option>
                                 {genderArray.map((value, index) => <option key={index} value={value.id}>{value.gender}</option>)}
                             </select>
@@ -324,18 +372,18 @@ export const RegistrationForm = (props) => {
                         <div className="mb-3">
                             <label className="form-label">Email<span>*</span></label>
                             <input type="email" className={emailError ? 'error-form-control form-control' : 'form-control'} value={email}
-                                onClick={(e) => emailChange(email)} onChange={(e) => emailChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “Rohan@mail.com”" />
+                                onBlur={(e) => emailChange(email)} onChange={(e) => emailChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “Rohan@mail.com”" />
                             {emailError &&
-                                <span className='error-message'>Please enter valid email</span>
+                                <span className='error-message'>{emailcheckmsg}</span>
                             }
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Mobile <span>*</span></label>
                             <input type="number" className={mobileError ? 'error-form-control form-control' : 'form-control'} value={mobile}
-                                onClick={() => mobileChange(mobile)} onChange={(e) => mobileChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “9800012345”" />
+                                onBlur={() => mobileChange(mobile)} onChange={(e) => mobileChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “9800012345”" />
                             {mobileError &&
-                                <span className='error-message'>Please enter valid mobile number</span>
+                                <span className='error-message'>{phonecheckmsg}</span>
                             }
                         </div>
 
@@ -343,7 +391,7 @@ export const RegistrationForm = (props) => {
                         <div className="mb-3">
                             <label className="form-label">Address 1<span>*</span></label>
                             <input type="text" className={address1Error ? 'error-form-control form-control' : 'form-control'} value={address1}
-                                onClick={() => address1Change(address1)} onChange={(e) => address1Change(e.target.value)} id="exampleFormControlInput1" placeholder="House numnber, Street number, Apartment" />
+                                onBlur={() => address1Change(address1)} onChange={(e) => address1Change(e.target.value)} id="exampleFormControlInput1" placeholder="House numnber, Street number, Apartment" />
                             {address1Error &&
                                 <span className='error-message'>Please enter address1</span>
                             }
@@ -359,7 +407,7 @@ export const RegistrationForm = (props) => {
                         <div className="mb-3">
                             <label className="form-label">City/Town/Village<span>*</span></label>
                             <input type="text" className={cityError ? 'error-form-control form-control' : 'form-control'} value={city}
-                                onClick={() => cityChange(city)} onChange={(e) => cityChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “Gowdavalli" />
+                                onBlur={() => cityChange(city)} onChange={(e) => cityChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “Gowdavalli" />
                             {cityError &&
                                 <span className='error-message'>Please enter city</span>
                             }
@@ -367,7 +415,7 @@ export const RegistrationForm = (props) => {
                         <div className="mb-3">
                             <label className="form-label">District <span>*</span></label>
                             <select className={districtError ? 'error-form-select form-select' : 'form-select'} value={district}
-                                onClick={() => districtChange(district)} onChange={(e) => districtChange(e.target.value)} aria-label="Default select example">
+                                onBlur={() => districtChange(district)} onChange={(e) => districtChange(e.target.value)} aria-label="Default select example">
                                 <option selected value=''>Please select...</option>
                                 {districtArray.map((value, index) => <option key={index} value={value.id}>{value.district}</option>)}
                             </select>
@@ -378,7 +426,7 @@ export const RegistrationForm = (props) => {
                         <div className="mb-3">
                             <label className="form-label">PIN Code <span>*</span></label>
                             <input type="number" className={pincodeError ? 'error-form-control form-control' : 'form-control'} value={pincode}
-                                onClick={() => pincodeChange(pincode)} onChange={(e) => pincodeChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “501401”" />
+                                onBlur={() => pincodeChange(pincode)} onChange={(e) => pincodeChange(e.target.value)} id="exampleFormControlInput1" placeholder="Example “501401”" />
                             {pincodeError &&
                                 <span className='error-message'>Please enter a valid pincode</span>
                             }
@@ -386,7 +434,7 @@ export const RegistrationForm = (props) => {
                         <div className="mb-3">
                             <label className="form-label">Choose Highest Qualification<span>*</span></label>
                             <select className={highestqualificationError ? 'error-form-select form-select' : 'form-select'} value={highestqualification}
-                                onClick={() => highestqualificationChange(highestqualification)} onChange={(e) => highestqualificationChange(e.target.value)} aria-label="Default select example">
+                                onBlur={() => highestqualificationChange(highestqualification)} onChange={(e) => highestqualificationChange(e.target.value)} aria-label="Default select example">
                                 <option selected value=''>Please select...</option>
                                 {qualificationArray.map((value, index) => <option key={index} value={value.id}>{value.highestQua}</option>)}
                             </select>
@@ -472,7 +520,7 @@ export const RegistrationForm = (props) => {
                             </div>
                         }
                         <div className="btns">
-                            <p><b> Pay only Rs. 1920</b> (Course fee Rs. 1627 + Gst 18% Rs. 293)</p>
+                            {/* <p><b> Pay only Rs. 1920</b> (Course fee Rs. 1627 + Gst 18% Rs. 293)</p> */}
                             {/* <button className={registerbuttonEnable === false ? 'disabled-btn-data' : 'btn-data'}
                             disabled={registerbuttonEnable === false ? true : false} style={{ marginBottom: '10px' }}
                             onClick={() => register()}>
@@ -486,8 +534,8 @@ export const RegistrationForm = (props) => {
                             <input type="hidden" name="firstname" size="15" value={fullname} required />
                             <input type="hidden" name="email" size="15" value={email} required />
                             <input type="hidden" name="phone" size="15" value={mobile} required />
-                            <input type="hidden" name="surl" size="15" value="http://localhost:3000/Success/" required />
-                            <input type="hidden" name="furl" size="15" value="http://localhost:3000/Success/" required />
+                            <input type="hidden" name="surl" size="15" value="http://localhost:3000/Success" required />
+                            <input type="hidden" name="furl" size="15" value="http://localhost:3000/Paymentfailed" required />
                             <input type="hidden" name="hash" size="15" value={hashdata} required />
                             <button type="submit" className={registerbuttonEnable === false ? 'disabled-btn-data' : 'btn-data'} disabled={registerbuttonEnable === false ? true : false}>
                                 i’m interested pay now!
