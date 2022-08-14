@@ -829,3 +829,9 @@ margin-bottom: 1rem;
 .privacy h3 {
   text-align: center;
 }
+.page-item.active .page-link {
+  z-index: 3;
+  color: black;
+  background-color: #c3eefe;
+  border-color: #c3eefe;
+}

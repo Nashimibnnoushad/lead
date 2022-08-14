@@ -4,11 +4,15 @@ import '../js/index.js'
 import plus from '../image/plus.png'
 import minus from '../image/minus.png'
 import axios from 'axios';
+import PaginationComponent from 'react-reactstrap-pagination'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const FAQ = (props) => {
   const [faqList, setfaqList] = useState([])
+  const [activefaqList, setactivefaqList] = useState([])
   const [activeid, setactiveid] = useState(0)
-
+  const [activepage, setactivepage] = useState(1)
+  const [totalitems, settotalitems] = useState(0)
 
   useEffect(() => {
     setactiveid(0)
@@ -25,8 +29,15 @@ export const FAQ = (props) => {
     }
     axios.get(`https://leadappdev-api.azurewebsites.net/api/UserRegistration/GetAllFaqs?pageno=1&languageid=${lang}`, { headers: headers })
       .then((response) => {
-        console.log(response, 'faq response')
+        console.log(response.data,response.data.length, 'faq response')
         setfaqList(response.data)
+        settotalitems(response.data.length)
+        if(response.data.length > 10){
+          setcurrentfaqlist()
+        }
+        else{
+          setactivefaqList(response.data)
+        }
       })
   }, []);
 
@@ -34,13 +45,30 @@ export const FAQ = (props) => {
     setactiveid(id)
   }
 
+  const setcurrentfaqlist = () => {
+    var newarr = []
+    console.log(activepage,(activepage-1)*10,(activepage*10)-1,'page,start,end')
+    for(let i=(activepage-1)*10;i<(activepage*10)-1;i++){
+      if(faqList[i] !== undefined){
+        newarr.push(faqList[i])
+      }
+    }
+    setactivefaqList(newarr)
+  }
+
+  const handlePageChange = (selectedPage) => {
+    console.log(selectedPage,'selected page')
+    setactivepage(selectedPage)
+    setcurrentfaqlist()
+  }
+
   return (
     <>
-      <div className="faq my-5">
-        <div className="container">
+      <div className="faq my-5" >
+        <div className="container" style={{marginBottom:'5rem'}}>
           <h2>FAQ</h2>
 
-          {faqList.map((value, index) =>
+          {activefaqList.map((value, index) =>
             <div key={index} className="faqlist faq-color-C3EEFE">
               <div className="faqhead">
                 <div className="row">
@@ -68,107 +96,13 @@ export const FAQ = (props) => {
               }
             </div>
           )}
-          {/* <div className="faqlist faq-color-C3EEFE">
-            <div className="faqhead">
-              <div className="row">
-                <div className="col-10">
-                  <p>Can I enroll in both courses?</p>
-                </div>
-                <div className="col-2 text-end">
-                  <span className="plus">
-                    <img src={plus} alt="" srcset="" />
-                  </span>
-                  <span className="minus">
-                    <img src={minus} alt="" srcset="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="faqdetails">
-              <p>content</p>
-            </div>
+          <div style={{float:'right'}}>
+            <PaginationComponent
+              totalItems={totalitems}
+              pageSize={10}
+              onSelect={handlePageChange}
+            />
           </div>
-          <div className="faqlist faq-color-C3EEFE">
-            <div className="faqhead">
-              <div className="row">
-                <div className="col-10">
-                  <p>The courses will be online or offline or blended?</p>
-                </div>
-                <div className="col-2 text-end">
-                  <span className="plus">
-                    <img src={plus} alt="" srcset="" />
-                  </span>
-                  <span className="minus">
-                    <img src={minus} alt="" srcset="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="faqdetails">
-              <p>content</p>
-            </div>
-          </div>
-          <div className="faqlist faq-color-C3EEFE">
-            <div className="faqhead">
-              <div className="row">
-                <div className="col-10">
-                  <p>What is Entrepreneurship Program?</p>
-                </div>
-                <div className="col-2 text-end">
-                  <span className="plus">
-                    <img src={plus} alt="" srcset="" />
-                  </span>
-                  <span className="minus">
-                    <img src={minus} alt="" srcset="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="faqdetails">
-              <p>content</p>
-            </div>
-          </div>
-          <div className="faqlist faq-color-C3EEFE">
-            <div className="faqhead">
-              <div className="row">
-                <div className="col-10">
-                  <p>Why start a career in Entrepreneurship Program?</p>
-                </div>
-                <div className="col-2 text-end">
-                  <span className="plus">
-                    <img src={plus} alt="" srcset="" />
-                  </span>
-                  <span className="minus">
-                    <img src={minus} alt="" srcset="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="faqdetails">
-              <p>content</p>
-            </div>
-          </div>
-          <div className="faqlist faq-color-C3EEFE">
-            <div className="faqhead">
-              <div className="row">
-                <div className="col-10">
-                  <p>What background knowledge is necessary?</p>
-                </div>
-                <div className="col-2 text-end">
-                  <span className="plus">
-                    <img src={plus} alt="" srcset="" />
-                  </span>
-                  <span className="minus">
-                    <img src={minus} alt="" srcset="" />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="faqdetails">
-              <p>content</p>
-            </div>
-          </div> */}
-
         </div>
       </div>
     </>
