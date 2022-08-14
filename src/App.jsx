@@ -3,6 +3,8 @@ import Register from '../src/components/register';
 import Success from '../src/components/success';
 import InviteSuccess from '../src/components/invitationsuccess';
 import PaymentFailed from '../src/components/failed';
+import Privacy from '../src/components/Privacy';
+import Refund from '../src/components/refund';
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './components/navigation';
@@ -22,6 +24,8 @@ const App = () => {
           <Route exact path='/Success' element={< Success />}></Route>
           <Route exact path='/Invitationsuccess' element={< InviteSuccess />}></Route>
           <Route exact path='/Paymentfailed' element={< PaymentFailed />}></Route>
+          <Route exact path='/Privacypolicy' element={< Privacy />}></Route>
+          <Route exact path='/Refundpolicy' element={< Refund />}></Route>
         </Routes>
         <Footer />
         {/* </div> */}

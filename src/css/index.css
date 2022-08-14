@@ -809,3 +809,23 @@ margin-bottom: 1rem;
   color: black !important;
   text-decoration: none;
 }
+
+.privacy{
+  padding: 5%;
+}
+
+.privacy p {
+  text-align: justify;
+}
+
+.privacy h5 {
+  text-align: justify;
+}
+
+.privacy ul li{
+  text-align: justify;
+}
+
+.privacy h3 {
+  text-align: center;
+}

@@ -20,7 +20,15 @@ export const Footer = (props) => {
                     <div className="row">
                         <div className="col-md-4 mb-5">
                             <h3>The Program</h3>
-                            <p> <img src={privacy} className="icons" alt="" srcset="" />  Privacy Policy</p>
+                            <a className='footerlink' href='/Privacypolicy'>
+                                <p>
+                                    <img src={privacy} className="icons" alt="" srcset="" />  Privacy Policy
+                                </p> </a>
+                            <a className='footerlink' href='/Refundpolicy'>
+                                <p>
+                                    <i className="fa fa-refresh icons" aria-hidden="true"></i> Refund Policy
+                                </p>
+                            </a>
                             <p><img src={mediaicon} className="icons" alt="" srcset="" />  Media Center</p>
                             <p><img src={help} className="icons" alt="" srcset="" /> Help Center</p>
 

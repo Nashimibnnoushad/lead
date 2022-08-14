@@ -534,8 +534,8 @@ export const RegistrationForm = (props) => {
                             <input type="hidden" name="firstname" size="15" value={fullname} required />
                             <input type="hidden" name="email" size="15" value={email} required />
                             <input type="hidden" name="phone" size="15" value={mobile} required />
-                            <input type="hidden" name="surl" size="15" value="http://localhost:3000/Success" required />
-                            <input type="hidden" name="furl" size="15" value="http://localhost:3000/Paymentfailed" required />
+                            <input type="hidden" name="surl" size="15" value="https://leadappdev.azurewebsites.net/Success" required />
+                            <input type="hidden" name="furl" size="15" value="https://leadappdev.azurewebsites.net/Paymentfailed" required />
                             <input type="hidden" name="hash" size="15" value={hashdata} required />
                             <button type="submit" className={registerbuttonEnable === false ? 'disabled-btn-data' : 'btn-data'} disabled={registerbuttonEnable === false ? true : false}>
                                 i’m interested pay now!
