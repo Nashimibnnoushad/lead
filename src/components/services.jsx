@@ -30,18 +30,18 @@ export const Services = (props) => {
             <div  className="detail-ent">
               <h2 style={{color:'white'}}>Entrepreneurship Program, brought to you by TASK powered by Ed4All™ </h2>
               <ul>
-                <li style={{marginTop: "3rem"}}> Looking to be your own Boss?
+                <li style={{marginTop: "1rem"}}> Looking to be your own Boss?
                 </li>
-                <li style={{marginTop: "3rem"}}> Do you have a Business Idea?
+                <li style={{marginTop: "1rem"}}> Do you have a Business Idea?
                 </li>
-                <li style={{marginTop: "3rem"}}> Are you looking for a platform to learn new skills to run a successful business?
+                <li style={{marginTop: "1rem"}}> Are you looking for a platform to learn new skills to run a successful business?
                 </li>
               </ul>
-              <p style={{marginTop: "3rem"}}>You are at the right place at the right time!
+              <p style={{marginTop: "2rem"}}>You are at the right place at the right time!
               </p>
             </div>
             <div  className="btn-Entre mt-4">
-              <p style={{marginTop: "5rem"}}>Interested? Pay only <b>Rs 1,920</b>  for Skills, Certifications worth <b> Rs 16,000!</b>
+              <p style={{marginTop: "3rem"}}>Interested? Pay only <b>Rs 1,920</b>  for Skills, Certifications worth <b> Rs 16,000!</b>
               </p>
               <a className="btn-sate"  href='/Register'>Register</a>
             </div>
@@ -52,18 +52,18 @@ export const Services = (props) => {
             <div  className="detail-ent">
               <h2 style={{color:'white'}}>Skilling Program, brought to you by TASK powered by Ed4All™</h2>
               <ul>
-                <li style={{marginTop: "3rem"}}> Are you a Graduate?
+                <li style={{marginTop: "1rem"}}> Are you a Graduate?
                 </li>
-                <li style={{marginTop: "3rem"}}> Are you looking for a Job?
+                <li style={{marginTop: "1rem"}}> Are you looking for a Job?
                 </li>
-                <li style={{marginTop: "3rem"}}> You are at the right place, at the right time!
+                <li style={{marginTop: "1rem"}}> You are at the right place, at the right time!
                 </li>
               </ul>
-              <p style={{marginTop: "3rem"}}>Learn new Skills to get your dream Job.
+              <p style={{marginTop: "2rem"}}>Learn new Skills to get your dream Job.
               </p>
             </div>
             <div  className="btn-Entre mt-4">
-              <p style={{marginTop: "5rem"}}>Interested? Pay only <b>Rs 1,920</b>  for Skills, Certifications worth <b> Rs 16,000!</b>
+              <p style={{marginTop: "3rem"}}>Interested? Pay only <b>Rs 1,920</b>  for Skills, Certifications worth <b> Rs 16,000!</b>
               </p>
               <a className="btn-sate"   href='/Register'>Register</a>
             </div>
@@ -73,7 +73,7 @@ export const Services = (props) => {
           <div  className="container">
             <div  className="row">
               <div  className="col-md-4">
-                <div  className="box">
+                <div  className="box" style={{float:'left'}}>
                   <div  className="box-head">
                     <img src={group} alt="" srcset="" />
                   </div>
@@ -108,7 +108,7 @@ export const Services = (props) => {
                 </div>
               </div>
               <div  className="col-md-4">
-                <div  className="box">
+                <div  className="box" style={{float:'right'}}>
                   <div  className="box-head">
                     <img src={microsoft} alt="" srcset="" />
                   </div>

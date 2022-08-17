@@ -47,12 +47,12 @@ export const Navigation = (props) => {
               <div className="col-10  text-end">
                 <span className="mx-3" style={{ "display": "inline-block", cursor: "pointer" }}>
                   <a className='link' href={`mailto:${configData.NAVBAR_MAIL}`}>
-                    <i className="fa fa-envelope mr-2" aria-hidden="true"></i>{configData.NAVBAR_MAIL}
+                    <i className="fa fa-envelope mr-2" style={{marginRight:'5px'}} aria-hidden="true"></i>{configData.NAVBAR_MAIL}
                   </a>
                 </span>
                 <span className="mx-3" style={{ "display": "inline-block ", cursor: "pointer" }}>
                 <a className='link' href={`tel:${configData.NAVBAR_CONTACT}`}>
-                <i className="fa fa-phone mr-2" aria-hidden="true"></i>{configData.NAVBAR_CONTACT}
+                <i className="fa fa-phone mr-2" aria-hidden="true" style={{marginRight:'5px'}}></i>{configData.NAVBAR_CONTACT}
                 </a>
                 </span>
                 <span className="mx-3" style={{ "display": "inline-block ", cursor: "pointer" }}>

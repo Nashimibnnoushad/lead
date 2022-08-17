@@ -20,30 +20,30 @@ export const Footer = (props) => {
                     <div className="row">
                         <div className="col-md-4 mb-5">
                             <h3>The Program</h3>
-                            <a className='footerlink' href='/Privacypolicy'>
+                            <a className='footerlink' style={{textIndent:'3px'}} href='/Privacypolicy'>
                                 <p>
                                     <img src={privacy} className="icons" alt="" srcset="" />  Privacy Policy
                                 </p> </a>
-                            <a className='footerlink' href='/Refundpolicy'>
+                            <a className='footerlink' style={{textIndent:'3px'}} href='/Refundpolicy'>
                                 <p>
                                     <i className="fa fa-refresh icons" aria-hidden="true"></i> Refund Policy
                                 </p>
                             </a>
-                            <p><img src={mediaicon} className="icons" alt="" srcset="" />  Media Center</p>
-                            <p><img src={help} className="icons" alt="" srcset="" /> Help Center</p>
+                            <p style={{textIndent:'3px'}}><img src={mediaicon}  className="icons" alt="" srcset="" />  Media Center</p>
+                            <p style={{textIndent:'3px'}}><img src={help}  className="icons" alt="" srcset="" /> Help Center</p>
 
                         </div>
                         <div className="col-md-5  mb-5">
                             <h3>Contact Us</h3>
                             <div> </div>
-                            <p>
+                            <p style={{textIndent:'3px'}}>
                                 <a className='footerlink' href={`tel:${configData.FOOTER_CONTACT}`}>
                                     <img src={call} className="icons" alt="" srcset="" />
                                     {configData.FOOTER_CONTACT}
                                 </a>
                                 <br />
                                 <span style={{ paddingLeft: "35px" }}>(9am to 6 pm, Monday to Friday) </span></p>
-                            <p>
+                            <p style={{textIndent:'3px'}}>
                                 <a className='footerlink' href={`mailto:${configData.FOOTER_MAIL}`}>
                                     <img src={mail} className="icons" alt="" srcset="" /> Write to us at {configData.FOOTER_MAIL}
                                 </a>

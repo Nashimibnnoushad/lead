@@ -17,7 +17,7 @@ export const Features = (props) => {
 
   return (
     <>
-      <div className="slide-items" style={{height: 'initial'}}>
+      <div className="slide-items" style={{height: '523px'}}>
         <div className="swiper mySwiper">
           <div className="swiper-wrapper">
             <Carousel style={{ padding: "0px" }} pause='false' nextIcon ={nextIcon} prevIcon={prevIcon}>
@@ -45,7 +45,7 @@ export const Features = (props) => {
                     </div>
                     <div className="scroolanime">
                       <div className="mouse"></div>
-                      <div style={{width: "min-content", lineHeight: '22px'}}>Scroll Down</div>
+                      <div className='scroll-down'>Scroll Down</div>
                     </div>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export const Features = (props) => {
                     </div>
                     <div className="scroolanime">
                       <div className="mouse"></div>
-                      <div style={{width: "min-content", lineHeight: '22px'}}>Scroll Down</div>
+                      <div className='scroll-down'>Scroll Down</div>
                     </div>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export const Features = (props) => {
                     </div>
                     <div className="scroolanime">
                       <div className="mouse"></div>
-                      <div style={{width: "min-content", lineHeight: '22px'}}>Scroll Down</div>
+                      <div className='scroll-down'>Scroll Down</div>
                     </div>
                   </div>
                 </div>
@@ -122,7 +122,7 @@ export const Features = (props) => {
                     </div>
                     <div className="scroolanime">
                       <div className="mouse"></div>
-                      <div style={{width: "min-content", lineHeight: '22px'}}>Scroll Down</div>
+                      <div className='scroll-down'>Scroll Down</div>
                     </div>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export const Features = (props) => {
                     </div>
                     <div className="scroolanime">
                       <div className="mouse"></div>
-                      <div style={{width: "min-content", lineHeight: '22px'}}>Scroll Down</div>
+                      <div className='scroll-down'>Scroll Down</div>
                     </div>
                   </div>
                 </div>
@@ -177,7 +177,7 @@ export const Features = (props) => {
                     </div>
                     <div className="scroolanime">
                       <div className="mouse"></div>
-                      <div style={{width: "min-content", lineHeight: '22px'}}>Scroll Down</div>
+                      <div className='scroll-down'>Scroll Down</div>
                     </div>
                   </div>
                 </div>
