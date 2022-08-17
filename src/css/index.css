@@ -121,9 +121,9 @@ border-bottom: 1px solid #0079A4;
     background-color:#0079A4;
     margin: 15px 10px;
     color: rgb(255, 255, 255);
-font-family: 'Roboto', sans-serif;
-font-size: 18px;
-font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
  
   }
   .reg-button:hover{
@@ -383,14 +383,13 @@ color: #000;
   }
 
   .circleimage{
-    position: absolute;
-   
+    position: absolute;  
     width: 20rem;
     height: 20rem;
     display: block;
     border-radius: 50%;
     background-color: #A9FF30;
-    z-index:-1;
+    z-index: 0;
     right: 6rem;
   }
   .sliderimageitems{
@@ -400,8 +399,8 @@ color: #000;
 
   .sliderimages .sliderimagespicial { 
     position:relative;
-height: 100%;
-text-align: center;
+    height: 100%;
+    text-align: center;
 /* padding-top: 20px; */
 
  
@@ -708,17 +707,16 @@ margin-bottom: 1rem;
     background-color: #03bbfe54;
   }
 
-  .circleimage{
+  /* .circleimage{
     position: absolute;
-   
     width: 20rem;
     height: 20rem;
     display: block;
     border-radius: 50%;
     background-color: #A9FF30;
-    z-index:-1;
+    z-index: 1;
     right: -2rem;
-  }
+  } */
 
 
 }

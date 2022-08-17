@@ -17,10 +17,10 @@ export const Features = (props) => {
 
   return (
     <>
-      <div className="slide-items" style={{height: '523px'}}>
+      <div className="slide-items" style={{ height: '523px' }}>
         <div className="swiper mySwiper">
           <div className="swiper-wrapper">
-            <Carousel style={{ padding: "0px" }} pause='false' nextIcon ={nextIcon} prevIcon={prevIcon}>
+            <Carousel style={{ padding: "0px" }} pause='false' nextIcon={nextIcon} prevIcon={prevIcon}>
               <Carousel.Item interval={3000}>
                 <div className="swiper-slide  slider-color">
                   <div className="slider-content container-fluid">
@@ -40,7 +40,9 @@ export const Features = (props) => {
                       </div>
                       <div className="col-md-6 sliderimages " >
                         <div className="circleimage"></div>
-                        <img src={slider1} alt="" srcset="" />
+                        <div className="sliderimagespicial">
+                          <img src={slider1} alt="" srcset="" />
+                        </div>
                       </div>
                     </div>
                     <div className="scroolanime">
@@ -63,7 +65,9 @@ export const Features = (props) => {
                       </div>
                       <div className="col-md-6 sliderimages " >
                         <div className="circleimage"></div>
-                        <img src={slider2} alt="" srcset="" />
+                        <div className="sliderimagespicial">
+                          <img src={slider2} alt="" srcset="" />
+                        </div>
                       </div>
                     </div>
                     <div className="scroolanime">
